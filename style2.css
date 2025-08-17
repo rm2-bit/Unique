@@ -1,0 +1,143 @@
+body {
+    background: #b3ebf2;
+    text-align: center; /* Center align the text */
+}
+
+.title {
+    font-size: 2.5em; /* Adjust the font size as needed */
+    color: #070707; /* Adjust the color as needed */
+    margin-top: 20px; /* Adjust the top margin as needed */
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure all items are on one line */
+    gap: 20px; /* Adjust the gap between the cards as needed */
+    overflow-x: auto; /* Allow horizontal scrolling if necessary */
+    align-items: center; /* Align items vertically centered */
+}
+
+.stack {
+    width: 55%;
+    max-width: 400px;
+    transition: 0.25s ease;
+    &:hover {
+        transform: rotate(5deg);
+        .card:before {
+            transform: translatey(-2%) rotate(-4deg);
+        }
+        .card:after {
+            transform: translatey(2%) rotate(4deg);
+        }
+    }
+}
+
+.card {
+    flex: 0 0 auto; /* Prevent cards from shrinking or growing */
+    width: 300px; /* Adjust the width of the cards */
+    aspect-ratio: 3 / 2;
+    border: 30px solid #fdfdfd;
+    background-color: #ffc5d3;
+    position: relative;
+    transition: 0.15s ease;
+    cursor: pointer;
+    padding: 5% 5% 5% 5%;
+}
+
+.card:before,
+.card:after {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #FCEECF;
+    transform-origin: center center;
+    z-index: -1;
+    transition: 0.15s ease;
+    top: 0;
+    left: 0;
+}
+
+.image1 {
+    background-color: #ff9aa2;
+}
+
+.card:before {
+    transform: translatey(-2%) rotate(-6deg);
+}
+
+.card:after {
+    transform: translatey(2%) rotate(6deg);
+}
+
+.image {
+    width: 100%;
+    border: 4px solid;
+    aspect-ratio: 1 / 1;
+}
+
+.browser-warning {
+    margin-bottom: 4rem;
+}
+
+@supports (aspect-ratio: 1 / 1) {
+    .browser-warning {
+        display: none;
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    }
+
+    .card {
+        flex: 1 1 calc(50% - 20px); /* Adjust the width of the cards for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        flex: 1 1 calc(100% - 20px); /* Adjust the width of the cards for very small screens */
+    }
+}
+
+.name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 80px;
+    color: #FF69B4; /* Pink, adjust as needed */
+    text-align: center;
+}
+
+.next-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4158d0;
+    border: 1px solid #090909;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    margin-left: auto; /* Align to the right */
+    flex-shrink: 0; /* Prevent the button from shrinking */
+}
+
+.next-button:hover {
+    background-color: #c850c0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center; /* Align items vertically centered */
+    width: 100%; /* Ensure the wrapper takes full width */
+}
